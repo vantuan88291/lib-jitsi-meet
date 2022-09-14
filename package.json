@@ -71,7 +71,6 @@
     "validate": "npm ls",
     "watch": "webpack --config webpack.config.js --watch --mode development"
   },
-  "browser": "dist/umd/lib-jitsi-meet.min.js",
   "main": "./index.js",
   "license": "Apache-2.0"
 }
