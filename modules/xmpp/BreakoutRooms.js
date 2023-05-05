@@ -143,7 +143,7 @@ export default class BreakoutRooms {
         }
 
         // Use heuristic, helpful for checking in the MUC_JOINED event.
-        return Strophe.getDomainFromJid(this.room.myroomjid) === this.getComponentAddress();
+        return Strophe.getDomainFromJid(this.room?.myroomjid) === this.getComponentAddress();
     }
 
     /**

@@ -1195,12 +1195,12 @@ JitsiConference.prototype._fireMuteChangeEvent = function(track) {
         this.isMutedByFocus = false;
 
         // unmute local user on server
-        this.room.muteParticipant(this.room.myroomjid, false, MediaType.AUDIO);
+        this.room.muteParticipant(this.room?.myroomjid, false, MediaType.AUDIO);
     } else if (this.isVideoMutedByFocus && track.isVideoTrack() && !track.isMuted()) {
         this.isVideoMutedByFocus = false;
 
         // unmute local user on server
-        this.room.muteParticipant(this.room.myroomjid, false, MediaType.VIDEO);
+        this.room.muteParticipant(this.room?.myroomjid, false, MediaType.VIDEO);
     }
 
     let actorParticipant;
@@ -2536,8 +2536,8 @@ JitsiConference.prototype.isDTMFSupported = function() {
  */
 JitsiConference.prototype.myUserId = function() {
     return (
-        this.room && this.room.myroomjid
-            ? Strophe.getResourceFromJid(this.room.myroomjid)
+        this.room && this.room?.myroomjid
+            ? Strophe.getResourceFromJid(this.room?.myroomjid)
             : null);
 };
 
@@ -3429,10 +3429,10 @@ JitsiConference.prototype._startP2PSession = function(remoteJid) {
     this.isP2PConnectionInterrupted = false;
     this.p2pJingleSession
         = this.xmpp.connection.jingle.newP2PJingleSession(
-            this.room.myroomjid,
+            this.room?.myroomjid,
             remoteJid);
     logger.info(
-        'Created new P2P JingleSession', this.room.myroomjid, remoteJid);
+        'Created new P2P JingleSession', this.room?.myroomjid, remoteJid);
     this._sendConferenceJoinAnalyticsEvent();
 
     this.p2pJingleSession.initialize(
